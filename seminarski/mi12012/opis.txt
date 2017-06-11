@@ -1,0 +1,10 @@
+baza sa imenom autooglasi sadrzi 4 tabele sa nazivima:
+korisnici - sadrzi podatke o korisniku koje korisnik popunjava prilikom registracije na sajt (primarni kljuc - idKorisnika, ime, prezime, sifra, primarni kljuc-mail)
+oglasi - sadrzi podatke o oglasu korisnika, primarni kljuc idOglasa, i strani kljuc idKorisnika koji je primarni u tabeli korisnici 
+lokacijeSlika - sadrzi strani kljuc idOglasa i putanju do slike
+kontakt - sadrzi strani kljuc idOglasa i kontakt podatke (iz imena polja u tabelama znacenje podataka koje sadrze ce vam biti jasno)
+
+lozinke se cuvaju hesirane md5 funkcijom i ,,zasoljene" na pocetku i kraju sa stringom ,,nenad" radi vece bezbednosti naloga korisnika, zbog duzine sifre od 20 varchar
+u bazi podataka nakon izracunavanja md5 hesirane funkcije vrsi se odsecanje potrebne duzine za poredjenje prilikom logovanja. 
+
+U tabeli oglasi kao idOglasa koristicemo korisnicko ime sa dodatim sufiksom o1 (ova verzija sajta ima mogucnost da korisnik postavi samo 1 oglas idOglasa se koristi zbog eventualnog prosirenja mogucnosti da korisnik moze postaviti vise oglasa sto bi realizovao tako sto bi u tabeli korisnici dodao polje redniBrojOglasa i onda za svaki novi na osnovu username-a i rednog broja generisao jedinstven idOglasa) takodje u slucaju prosirenja bi dodao jos jednu tabelu u bazu sa detaljima o oglasu klima,servo,abs...ciji bi strani kljuc bio idOglasa

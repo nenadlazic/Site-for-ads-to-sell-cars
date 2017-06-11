@@ -1,0 +1,64 @@
+U uslovima koje ste naveli u uputstvu za izradu seminarskog zahtevali ste sledece stavke koje izmedju ostalog mozete naci i u:
+Napomena: ovde nisu navedena sva mesta gde su korisceni trazeni elementi vec po jedno mesto gde mozete da se uverite da su korisceni 
+
+IZBOR TEME:
+ 	Tema je sajt za oglase (motivacija je bio jedan od najposecenijih sajtova u srbiji polovniautomobili.com)
+
+ OBIM RADA:
+ 	rad sadrzi 5 glavnih vezanih php strana (index.php,2.php,3.php,4.php,5.php) i jos nekolicinu php strana sa raznim funkcijama, upitima... 
+
+HTML DEO:
+	dokumenti su u skladu sa XHTML 1.0 strict DTD 
+	rad sa tekstom - kroz ceo seminarski ima dosta rada sa tekstom
+	rad sa listama - u folderu inc -> content.inc div sa class='korisniLinkovi'
+	rad sa tabelama - u folderu inc -> registration.inc form-a sa name='registrovanjeNaSajt'
+	rad sa linkovima - u folderu inc -> contact.inc div sa class='logoZnaci' 
+	rad sa slikama - u folderu inc -> interesting.inc slika kao pozadina, i slike logo znaci
+		opciono 
+	rad sa audio i video zapisima - realizovan u okviru inc ->interesting.inc 
+
+CSS:
+	se nalazi u direktorijumu css -> stil.css
+
+JavaScript i jQuery DEO :
+	u javascript/skripte.js se nalaze funkcije:
+	*proveriFormuPretrage() vrsi proferu forme za pretragu oglasa sve forme moraju biti popunjene a mnogo ugnjezdenih 
+	if-ova ima zbog toga sto bi u suprotnom za svako nepopunjeno polje izbacivao alert ovako samo jedan, iduci redom sa vrha proverava
+	(ovde mozete videti koriscenje svih trazenih tipova input kontrola - TEXT, CHECKBOX, RADIO i BUTTON, TEXTAREA kontorlom SELECT kontrolom i
+	SUBMIT i RESET  kao o informisanje korisnika preko alert/confirm/prompt prozorcica) korekcija greska je omogucena i prilikom greske to polje je 
+	selektovano
+
+
+	*proveriFormuLogovanja() vrsi proveru da li je korisnik uneo username i password
+	*proveriFormuRegistracije(),proveriFormuPoruke()...
+	
+u javascript/skripte2.js se nalaze krace funkcije u kojima ima i jquery-ja, neke od njih su:
+
+	*menjajSlike() i prikazi()  u njima mozeti videti i jquery - koje koristim za SLIDESHOW u headeru
+
+	*ukloniInicijalniTekst() i postaviInicijalniTekst() sluze da u poljima gde korisnik nesto unosi kada je fokus na elementu 
+	da se tekst uklanja i u suprotnom pojavljuje ako nije popunjeno polje od strane korisnika
+	
+	*anim1() anim2() .. koje se odnose na efekte na elementima u navigaciji...
+
+PHP MySQL DEO:
+	PHP je svuda koriscen, a sto se tice MySQL povezivanje sa bazom i koriscenje upisa mozete videti u pretraga_oglasa_u_bazi.php,
+	upis_u_bazu_oglas.php,,brisanje_oglasa_iz_baze.php...o bazi vise u opis.txt
+
+SESIJE:
+	na sajtu je podrzano registrovanje korisnika pa i logovanje gde je demonstriran rad sa sesijama -> logInOut.php 
+
+AJAX:
+	u folderu javascript u datoteci skripte2.js se nalaze funkcije za ajax koje se koriste za prikaz vremena u dodnjem levom uglu stranice
+
+COOKIE:
+	u folderu javascript u datoteci skripte2.js se nalaze funkcije za rad sa kolacicima, kada se prvi put ucita strana korisnik moze da upise
+	boju koja zeli da bude u pozadini ukoliko nece moze klinuti na potvrdi ili otkazi ili uneti bilo sta- promena nece biti, samo ispravna imena
+	red,yellow...ukoliko se naknadno predomisli moze u donjem levom uglu klinuti na korisnicka podesavanja i promeniti boju ili ako hoce da postavi 
+	na podrazumevano moze obrisati kolacice
+
+Baza je popunjena u meri dovoljnoj da testirate rad sajta, registrovao sam nekoliko korisnika i upisao njihove oglase pa mozete testirati i pretragu ali zbog ipak male popunjenosti baze
+verovatno ce Vam za vecinu nasumicnih pretraga izbaciti da nema oglasa sa zadatim kriterijumima jer je pretraga detaljna i napomena kada se kuca godiste do npr 2000
+ne ukljucujem i 2000 pa da vas nebi zbunilo to potrebno je staviti vecu cifru npr 2500. Ako unesete npr marku audi karoserija limuzina kubikaza od 1 do 3000 godiste od 1974 do 2014 cena od 1 do 8000 region zapadna srbija gorivo dizel registrovan da, ispisace nekoliko oglasa. CHECKBOX za registovan je ubacen da bi pokrio i taj deo input kontrola ali znam da ovde korisnik moze da klikne oba sto nebi bilo ispravno pa sam u tom slucaju uzimao da je cekirao samo da... mozete se registrovati upisati oglas, izmeniti, obrisati, u gornjem levom uglu 
+postoji dugme za logout...na strani 5.php postoji i opcija da posaljete mail redakciji sajta ali zbog potrebnih podesavanja mail servera na konkretnom racunaru na kom se izvrsava
+taj deo koda za slanje maila je zakomentarisan... Na sajt se mozete i ulogovati pod nekim vec postojecim korisnickim imenom npr kor2 sifra 123456
